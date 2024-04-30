@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@500&display=swap");
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; /* width & height of an element are calc based on content inside it.
+  width/height are calc this way like width+padding+border. box-sizing helps to involve padding & border in elements total width/height. */
+}
+
+/* creating global variables: variables inside :root, accessible throughout the document */
+:root{ /* HTML element */
+  --primary-text-color: #183b56;
+  --secondary-text-color: #577592;
+  --accent-color: #2294ed;
+  --accent-color-dark: #1d69a3;
+} /*these variables can be accessed for their use by referencing their names, for easy customisation and consistency in website designing*/
+body{
+  font-family: "Poppins", sans-serif;
+  color: var(--primary-text-color);
+}
+p{
+  font-family: "Roboto", sans-serif;
+  color: var(--secondary-text-color);
+  line-height: 1.4rem;
+}
+a{
+  text-decoration: none; /*underlines below the link is removed*/
+}
+ul{
+  list-style: none; /*bullet points removed*/
+}
+/* below two are the utility classes. */
+.flex{
+  display: flex;
+  align-items: center;
+}
+.container{
+  max-width: 1180px; /*all cards of same width*/
+  margin-inline: auto; /*centered aligned*/
+  overflow: hidden; /*if the content is larger than the container, it will be hidden*/
+}
+nav{
+  background-color: #f3faff;
+  box-shadow: 0 0 4px #bbd0e2; /*horizontal offset (shadow will be directly behind the element with no horizontal displacement), vertical offset (shadow will be directly behind the element with no vertical displacement), blur radius(how blurred or sharp the shadow's edges will be.
+  ), color(of the shadow, specified in hexadecimal format)*/
+  position: fixed; /*fixed position, it will not move when the user scrolls*/
+  top: 0;/*from top of the page*/
+  z-index: 99;/*z-index property specifies the stack order of an element. An element with greater stack order is always in front of an element with a lower stack order. often used to control the stacking order of positioned elements, such as those with position: absolute, position: relative, or position: fixed.*/
+  left: 0;/*from left of the page*/
+  right: 0;/*from right of the page*/
+}
+.main-nav{
+  justify-content: space-between; /*space between the elements*/
+  padding-block: 8px; /*padding from top and bottom*/
+}
+.site-logo img{
+  width: 120px;
+}
+.nav-links ul{
+  gap: 16px; /*gap between the elements*/
+}
+.hover-link{
+  cursor: pointer;
+}
+.hover-link:hover{
+  color: var(--secondary-text-color);
+}
+.hover-link:active{
+  color: red;
+}
+
+.nav-item.active{
+  color: var(--accent-color);
+} /*both classes nav-item & active*/
+/* as the particular li (ipl, politics, finance) is clicked those particular li receives an active class and rest se active class is removed. This has happened through JS */
+
+.search-bar{
+  height: 32px;
+  gap: 8px; /*gap between input & button*/
+}
+.news-input{
+  width: 200px;
+  height: 100%;/*height of the parent element*/
+  padding-inline: 12px; /*padding from top and bottom*/
+  border-radius: 4px;
+  border: 2px solid #bbd0e2;
+  font-family: "Roboto", sans-serif;
+  /* defining font family again from p tag, as form items don't take body font family */
+}
+.search-button{
+  background-color: var(--accent-color);
+  color: white;
+  padding: 8px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  /* defining font family again from p tag, as form items don't take body font family */
+}
+.search-button:hover{
+  background-color: var(--accent-color-dark);
+}
+main{
+  padding-block: 20px;
+  margin-top: 80px;/*to make space for the fixed nav bar, so that body se 80px niche rehe else image ghus jaa rhi inside navbar*/
+}
+.cards-container{
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  align-items: start;/*aligns the items to the start of the container*/
+}
+.card{
+  width: 360px;/*all cards of same width*/
+  min-height: 400px;
+  box-shadow: 0 0 4px #d4ecff;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #fff;
+  overflow: hidden;/*if the content is larger than the container, it will be hidden
+  the image that exceeded the container is resolved & border radius is applied.*/
+  transition: all 0.3s ease;/*transition property allows you to change property values smoothly (over a given duration).*/
+}
+.card:hover{
+  box-shadow: 1px 1px 8px #d4ecff;
+  background-color: #f9fdff;
+  transform: translateY(-2px);/*moves the element on the y-axis 2 px above*/
+}
+.card-header img{
+  width: 100%;
+  height: 180px;
+  object-fit: cover;/*the image is "contained" within the width and height of the containing element, but the aspect ratio is maintained*/
+}
+.card-content{
+  padding: 12px;
+}
+.news-source{
+  margin-block: 12px;
+}
